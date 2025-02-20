@@ -13,6 +13,11 @@ const Tasks = () => {
   const {tasks}=useSelector((state)=>state.tasksSlice)
   console.log(tasks);
   
+  
+  const pendingTask=tasks.filter((item)=>item.status==='pending')
+  const runningTask=tasks.filter((item)=>item.status==='running')
+  const doneTask=tasks.filter((item)=>item.status==='done')
+  
   return (
     <div className="h-screen grid grid-cols-12">
       <div className="col-span-9 px-10 pt-10">
@@ -49,7 +54,7 @@ const Tasks = () => {
             </div>
             <div className="space-y-3">
              {
-              tasks.map((item)=>(
+              pendingTask.map((item)=>(
                 <TaskCard key={item.id} task={item} />
               ))
              }
@@ -64,7 +69,7 @@ const Tasks = () => {
             </div>
             <div className="space-y-3">
             {
-              tasks.map((item)=>(
+              runningTask.map((item)=>(
                 <TaskCard key={item.id} task={item} />
               ))
              }
@@ -79,7 +84,7 @@ const Tasks = () => {
             </div>
             <div className="space-y-3">
             {
-              tasks.map((item)=>(
+              doneTask.map((item)=>(
                 <TaskCard key={item.id} task={item} />
               ))
              }
