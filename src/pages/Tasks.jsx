@@ -12,6 +12,8 @@ const Tasks = () => {
   const [isOpen,setIsOpen]=useState(false)
   const {tasks}=useSelector((state)=>state.tasksSlice)
   console.log(tasks);
+  const {users}=useSelector((state)=>state.users)
+  console.log(users);
   
   
   const pendingTask=tasks.filter((item)=>item.status==='pending')
@@ -50,7 +52,7 @@ const Tasks = () => {
             <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
               <h1>Up Next</h1>
               <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
-                0
+                {pendingTask.length}
               </p>
             </div>
             <div className="space-y-3">
@@ -65,7 +67,7 @@ const Tasks = () => {
             <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
               <h1>In Progress</h1>
               <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
-                0
+                {runningTask.length}
               </p>
             </div>
             <div className="space-y-3">
@@ -81,9 +83,9 @@ const Tasks = () => {
           </div>
           <div className="relative h-[800px] overflow-auto">
             <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
-              <h1>Up Next</h1>
+              <h1>Complete</h1>
               <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
-                0
+                {doneTask.length}
               </p>
             </div>
             <div className="space-y-3">
