@@ -26,6 +26,9 @@ const taskSlice=createSlice({
             console.log(target);
             
             target.status=payload.status
+        },
+        myTask:(state,{payload})=>{
+            
         }
 
 

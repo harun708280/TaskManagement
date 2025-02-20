@@ -18,6 +18,7 @@ const Tasks = () => {
   const runningTask=tasks.filter((item)=>item.status==='running')
   const doneTask=tasks.filter((item)=>item.status==='done')
   
+  
   return (
     <div className="h-screen grid grid-cols-12">
       <div className="col-span-9 px-10 pt-10">
@@ -75,7 +76,7 @@ const Tasks = () => {
              }
             </div>
             <div className="">
-              h
+              
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
